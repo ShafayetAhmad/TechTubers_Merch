@@ -55,12 +55,7 @@ function addItemToCart(itemID, itemPriceID) {
   totalPriceWithDiscount = (totalPrice - discount).toFixed(2);
   document.getElementById("total-after-discount").innerHTML =
     totalPriceWithDiscount;
-  const newCartItem = document.getElementById(itemID).innerText;
-  document
-    .getElementById("cart-section-products-list")
-    .appendChild(document.createElement("li")).innerText = `${
-    count++ + ". " + newCartItem
-  }`;
+  showProductList(itemID);
 }
 
 // copy coupon code on btn click
@@ -74,3 +69,56 @@ function copyToClipboard() {
 function goHome() {
   window.location.href = window.location.href;
 }
+
+function showProductList(itemID) {
+    const newCartItem = document.getElementById(itemID).innerText;
+    document
+      .getElementById("cart-section-products-list")
+      .appendChild(document.createElement("li")).innerText = `${
+      count++ + ". " + newCartItem
+    }`;
+}
+
+// cannot be used in github pages
+
+// Function to show the product list in the cart section
+// function showProductList(itemID) {
+//   // Read the existing cart data from the JSON file
+//   fetch("cart.json")
+//     .then((response) => response.json())
+//     .then((cartData) => {
+//       const newCartItem = document.getElementById(itemID).innerText;
+
+//       // Check if the product already exists in the cart data
+//       if (cartData[newCartItem]) {
+//         // Increment the count for the existing product
+//         cartData[newCartItem] += 1;
+//       } else {
+//         // Add the new product to the cart data with count 1
+//         cartData[newCartItem] = 1;
+//       }
+
+//       // Save the updated cart data back to the JSON file
+//       fetch("cart.json", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(cartData),
+//       });
+
+//       // Clear the cart products list and display the updated list
+//       const cartProductsList = document.getElementById(
+//         "cart-section-products-list"
+//       );
+//       cartProductsList.innerHTML = "";
+
+//       // Display each product and its count in the cart
+//       Object.entries(cartData).forEach(([product, count]) => {
+//         const listItem = document.createElement("li");
+//         listItem.innerText = `${product} (${count})`;
+//         cartProductsList.appendChild(listItem);
+//       });
+//     })
+//     .catch((error) => console.error("Error reading cart data:", error));
+// }
