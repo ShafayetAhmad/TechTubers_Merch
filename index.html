@@ -19,5 +19,41 @@
     <link rel="stylesheet" href="style.css" />
     <title>TechTubers Merch</title>
   </head>
-  <body></body>
+  <body>
+    <!-- Header Section -->
+    <header
+      class="text-center bg-[#F9F6E2] lg:px-60 lg:py-20 md:px-30 md:py-20 px-20 py-10"
+    >
+      <div class="banner flex lg:flex-row flex-col justify-center items-center">
+        <!-- Banner left text section -->
+        <div class="text-section flex-1">
+          <p class="text-gray-800 font-semibold text-3xl">---SALE FEVER---</p>
+          <h2 class="font-bold text-5xl text-gray-800 mt-11 mb-20">
+            Purchase Merchandise From Your Favorite TechTuber Worth $50 & <br />
+            Get flat
+            <span class="text-pink-500">20% off</span>
+          </h2>
+          <div class="promo-section">
+            <p class="font-semibold text-2xl text-gray-800 inline">
+              Use Promo Code
+            </p>
+            <button
+              class="bg-pink-500 font-bold text-white px-4 py-2 rounded-md"
+              title="Click to copy"
+              id="coupon-copy"
+              onclick="copyToClipboard()"
+            >
+              TechTuber
+            </button>
+          </div>
+        </div>
+        <!-- Banner right image section -->
+        <div class="img-section flex-1">
+          <img src="images/Summer 1.png" alt="" />
+        </div>
+      </div>
+    </header>
+
+    <script src="js/script.js"></script>
+  </body>
 </html>
